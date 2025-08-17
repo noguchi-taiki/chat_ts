@@ -1,0 +1,17 @@
+.header_title{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.header_icons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5rem;
+}
