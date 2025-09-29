@@ -1,5 +1,8 @@
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+"use client";
+
+import Cookie from "js-cookie";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 const LoginCheck = async () => {
   const cookieStore = await cookies();
