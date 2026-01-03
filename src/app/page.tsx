@@ -1,20 +1,29 @@
-"use client";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import jwt from "jsonwebtoken";
 
-import Cookie from "js-cookie";
-import { useState } from "react";
-import { useRouter } from "next/router";
+// const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = "hoge";
 
-const LoginCheck = async () => {
+const HomePage = async () => {
+
   const cookieStore = await cookies();
-  const session_id = cookieStore.get("session_id");
-  if(session_id){
-    redirect("/chat");
-  }else{
+  const token = cookieStore.get("token")?.value
+
+  if(token!=undefined){
+    try {
+      jwt.verify(token,JWT_SECRET);
+      redirect("/chat");
+    } catch (error) {
+      redirect("/login");
+    }
+  } else {
     redirect("/login");
   }
+  
   return<>
   <h1>PageLoad...</h1>
   </>
 }
 
-export default LoginCheck;
+export default HomePage;

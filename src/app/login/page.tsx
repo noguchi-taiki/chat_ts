@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface LoginResponce {
     ok? : boolean;
@@ -82,4 +82,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage();
+export default LoginPage;
