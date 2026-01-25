@@ -2,10 +2,9 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import jwt from "jsonwebtoken";
 
-// const JWT_SECRET = process.env.JWT_SECRET;
-const JWT_SECRET = "hoge";
+const JWT_SECRET = process.env.JWT_SECRET as string;
 
-const HomePage = async () => {
+const Page = async () => {
 
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value
@@ -26,4 +25,4 @@ const HomePage = async () => {
   </>
 }
 
-export default HomePage;
+export default Page;
