@@ -1,12 +1,13 @@
-import NextAuth from "next-auth";
-import CognitoPovider from "next-auth/providers/cognito";
+import nextAuth from "next-auth";
+import cognitoPovider from "next-auth/providers/cognito";
 
-///認証接続設定///
-const handler = NextAuth({
+///認証接続設定
+///cognitoのサインイン、サインアウト等はキャッチオートルートを使用していることでauthjsが自動でレンダリングする
+const handler = nextAuth({
     providers: [
-        CognitoPovider({
+        cognitoPovider({
             clientId: process.env.COGNITO_CLIENT_ID!,
-              clientSecret: process.env.COGNITO_CLIENT_SECRET ?? "",
+              clientSecret: process.env.COGNITO_CLIENT_SECRET!,
             issuer: process.env.COGNITO_ISSUER!,
         })
     ],
