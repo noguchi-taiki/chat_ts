@@ -5,4 +5,4 @@ const useHasSignin = (): boolean =>{
     return session !== null;
 }
 
-export default useHasSignin();
+export default useHasSignin;
