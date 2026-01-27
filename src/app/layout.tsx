@@ -3,9 +3,8 @@
 import React, { createContext,useContext,useState,ReactNode} from 'react';
 import Header from './components/Header/header';
 import Styles from './styles/layout.module.css';
+import Provider from './provider';
 import './styles/globals.css';
-
-
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,7 +30,9 @@ const Layout = ({children}:LayoutProps) => {
         <titleContext.Provider value={{ setTitle }}>
           <div className="app-container">
             <Header headerTitle={title} />
-            {children}
+            <Provider>
+              {children}
+            </Provider>
           </div>
         </titleContext.Provider>
       </body>
