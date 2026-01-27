@@ -1,0 +1,8 @@
+import { useSession } from "next-auth/react";
+
+const useHasSignin = (): boolean =>{
+    const {data: session} = useSession();
+    return session !== null;
+}
+
+export default useHasSignin();
